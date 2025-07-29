@@ -1,4 +1,9 @@
 from tavily import TavilyClient
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+TAVILY_API_KEY = os.getenv("TAVILY_API_KEY")
 
 def search(query):
     """
@@ -11,8 +16,8 @@ def search(query):
         dict: The response from the Tavily API.
     """
 
-    api_key = "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"
-    tavily_client = TavilyClient(api_key)
+    
+    tavily_client = TavilyClient(TAVILY_API_KEY)
 
     response = tavily_client.search(query=query)
 

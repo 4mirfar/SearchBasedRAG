@@ -18,3 +18,4 @@ marko
 
 tavily-python
 json2html
+python-dotenv
