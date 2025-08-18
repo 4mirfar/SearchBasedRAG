@@ -212,3 +212,7 @@ next-env.d.ts
 # js
 /.next/
 /out/
+
+clones/tensorflowDocs
+
+data/data.json

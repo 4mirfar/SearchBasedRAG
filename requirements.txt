@@ -1,5 +1,6 @@
 pandas
-numpy==1.26.4
+# numpy==1.26.4
+numpy
 openai
 jupyter
 ipykernel
@@ -19,3 +20,4 @@ marko
 tavily-python
 json2html
 python-dotenv
+tqdm

@@ -1,15 +1,20 @@
 from langchain.document_loaders import UnstructuredMarkdownLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
+from FlagEmbedding import FlagModel
+from tqdm import tqdm
 import os
+import json
 
-def prr_doc()
+def prr_doc():
 
-    instr = "Represent this sentence for searching relevant passages: Provide a detailed and accurate representation of the query to retrieve relevant technical documentation, explanations, or examples related to KServe."
+    instr = "Represent this sentence for searching relevant passages: Provide a detailed and accurate representation of the query to retrieve relevant technical documentation, explanations, or examples."
 
     model = FlagModel('BAAI/bge-large-en-v1.5', 
                     query_instruction_for_retrieval=instr,
                     use_fp16=True)
-    docs_dir = "./clones/KServe/website/docs"
+    
+    # docs_dir = "./clones/KServe/website/docs"
+    docs_dir ="./documents"
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
 
     all_chunks = []
@@ -40,5 +45,8 @@ def prr_doc()
                     })
 
 
-    with open("./data/kserve/kserve_rag_data.json", "w", encoding="utf-8") as f:
+    # with open("./data/kserve/kserve_rag_data.json", "w", encoding="utf-8") as f:
+        # json.dump(all_chunks, f, ensure_ascii=False, indent=2)
+
+    with open("./data/data.json", "w", encoding="utf-8") as f:
         json.dump(all_chunks, f, ensure_ascii=False, indent=2)
